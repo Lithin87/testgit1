@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Lithin87/testgit1#readme",
   "devDependencies": {
-    "@google-cloud/functions-framework": "^3.1.2"
+    "@google-cloud/functions-framework": "^3.1.2",
+    "axios": "^0.27.2"
   }
 }

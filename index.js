@@ -1,6 +1,5 @@
 const functions = require('@google-cloud/functions-framework');
-const escapeHtml = require('escape-html');
-
+var axios = require('axios');
 
 functions.http('hello', (req, res) => {
 
