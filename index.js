@@ -9,7 +9,8 @@ functions.http('hello',async (req, res) => {
   // console.log("LOG :"+ (JSON.stringify(response.data)))
 
   console.log("LOG :"+ JSON.stringify(response.data, null, 3));
-  res.set('Access-Control-Allow-Origin','*').set('Access-Control-Allow-Private-Network','true').send(response.data);
+  res.set('Access-Control-Allow-Origin','*').set('Access-Control-Allow-Private-Network','true')
+        .set('Access-Control-Allow-Headers','access-control-request-private-network,X-CSRF-Token').send(response.data);
 
   
 });
