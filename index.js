@@ -9,5 +9,5 @@ functions.http('hello',async (req, res) => {
   // console.log("LOG :"+ (JSON.stringify(response.data)))
 
   console.log("LOG :"+ JSON.stringify(response.data, null, 3));
-  res.setHeader('Access-Control-Allow-Origin','*').send(response.data);
+  res.set('Access-Control-Allow-Origin','*').send(response.data);
 });
