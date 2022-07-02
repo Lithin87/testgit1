@@ -14,14 +14,24 @@ functions.http('hello',async (req, res) => {
    var response;
 
   if(req.method == "GET")
-  {  console.log("CAME GET");
+  {  
+    
+    console.log("CAME GET"+req.path);
+
+    if(req.path == "/id")
+    {
+      const { resources } = await container.items.query({ query: "SELECT value max(StringToNumber(c.id)) FROM c" }).fetchAll();
+      // console.log(resources);
+      response = resources
+    }else if(req.path == "/")
+    {
     const querySpec = { query: "SELECT * from c" };
     const { resources } = await container.items.query(querySpec).fetchAll();
     response = resources.map(({id, form , _ts}) => ({id, form , _ts}))
     response.forEach(item => {
       console.log(item.id + " " + item._ts + "\n" + JSON.stringify(item.form,null,3));
     });
-   
+  }
   }
   else if(req.method == "POST")
   {
